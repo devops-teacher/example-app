@@ -1,5 +1,6 @@
 FROM ruby:2.6
 
-COPY app.rb .
+RUN gem install rack
+COPY config.ru .
 
-CMD ["ruby", "app.rb"]
+CMD ["rackup", "-p", "8000", "-o", "0.0.0.0"]
